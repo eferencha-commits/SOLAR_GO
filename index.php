@@ -9,7 +9,7 @@
     <meta name="description"
           content="Discover solar products, installation services, maintenance, and flexible payment options with SolarGo.">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -39,8 +39,8 @@
             </ul>
 
             <div class="nav-buttons">
-                <a href="auth/login.php" class="login-btn">Login</a>
-                <a href="auth/register.php" class="btn btn-small">Get Started</a>
+                <a href="login.php" class="login-btn">Login</a>
+                <a href="register.php" class="btn btn-small">Get Started</a>
             </div>
 
         </nav>
@@ -107,24 +107,11 @@
                     <div class="sun-decoration">☀</div>
 
                     <div class="solar-illustration">
+                        <img src="Assets/images/solar_panel.jpeg" alt="Solar panels installed on a rooftop">
 
                         <div class="illustration-sun"></div>
 
-                        <div class="house">
-                            <div class="roof"></div>
-
-                            <div class="house-body">
-                                <div class="window"></div>
-                                <div class="door"></div>
-                            </div>
-                        </div>
-
-                        <div class="solar-panel">
-                            <div class="panel-grid"></div>
-                        </div>
-
                         <div class="ground"></div>
-
                     </div>
 
                     <div class="floating-card">
@@ -157,7 +144,7 @@
                 </div>
 
                 <div class="benefit-item">
-                    <span>🛠️</span>
+                    
                     <div>
                         <h3>Professional Services</h3>
                         <p>Find installation and maintenance support.</p>
@@ -165,7 +152,7 @@
                 </div>
 
                 <div class="benefit-item">
-                    <span>💳</span>
+                    
                     <div>
                         <h3>Flexible Payments</h3>
                         <p>Apply for eligible instalment plans.</p>
@@ -208,8 +195,9 @@
                     <article class="product-card">
 
                         <div class="product-image battery-image">
+                            <img src="Assets/images/batteries.jpeg">
                             <span class="product-badge">Energy Storage</span>
-                            <div class="product-emoji">🔋</div>
+                            <div class="product-image-container"></div>
                         </div>
 
                         <div class="product-info">
@@ -230,7 +218,7 @@
                             </div>
 
                         </div>
-
+ 
                     </article>
 
 
@@ -238,8 +226,9 @@
                     <article class="product-card">
 
                         <div class="product-image panel-image">
+                            <img src="Assets/images/hero.jpeg" alt="Solar panel system installed on a rooftop">
                             <span class="product-badge">Solar Power</span>
-                            <div class="product-emoji">☀️</div>
+                            <div class="product-image-container"></div>
                         </div>
 
                         <div class="product-info">
@@ -268,8 +257,9 @@
                     <article class="product-card">
 
                         <div class="product-image inverter-image">
+                            <img src="Assets/images/power.jpeg">
                             <span class="product-badge">Power Backup</span>
-                            <div class="product-emoji">⚡</div>
+                            <div class="product-image-container"></div>
                         </div>
 
                         <div class="product-info">
@@ -309,6 +299,7 @@
         <section class="section services-section">
 
             <div class="container">
+                
 
                 <div class="section-heading centered">
 
@@ -323,21 +314,26 @@
 
                 </div>
 
-
+                    
                 <div class="services-grid">
+                
+                    <div>
 
-                    <article class="service-card">
-                        <div class="service-icon">🛒</div>
+                    <article id="solar" class="service-card">
+                     
+                        
+                        
                         <h3>Solar Marketplace</h3>
                         <p>
                             Explore solar panels, batteries, inverters,
                             and other approved product listings.
                         </p>
                         <a href="products.php">Explore products →</a>
-                    </article>
 
-                    <article class="service-card">
-                        <div class="service-icon">🔧</div>
+                    </article>
+</div>
+
+                    <article class ="install " class="service-card">
                         <h3>Installation Services</h3>
                         <p>
                             Find technicians who can help install
@@ -346,8 +342,7 @@
                         <a href="services.php">Find services →</a>
                     </article>
 
-                    <article class="service-card">
-                        <div class="service-icon">🛠️</div>
+                    <article id="repair" class="service-card">
                         <h3>Repair & Maintenance</h3>
                         <p>
                             Request help with system inspections,
@@ -356,8 +351,7 @@
                         <a href="services.php">Get assistance →</a>
                     </article>
 
-                    <article class="service-card">
-                        <div class="service-icon">💳</div>
+                    <article id="service" class="service-card">
                         <h3>Instalment Applications</h3>
                         <p>
                             Apply for instalment payments on eligible
@@ -516,7 +510,7 @@
     </footer>
 
 
-    <script src="assets/js/script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>

@@ -8,7 +8,7 @@
     --light-green: #eaf7ee;
     --yellow: #ffc928;
     --dark: #17251c;
-    --gray: #647067;
+    --gray: hsl(139, 67%, 9%);
     --white: #ffffff;
     --light-bg: #f7faf7;
     --border: #e3ebe4;
@@ -251,6 +251,13 @@ ul {
     border-radius: 25px;
     background: linear-gradient(#c6edda 0%, #e6f7eb 65%, #d0e9d4 65%);
     overflow: hidden;
+}
+
+.solar-illustration img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .illustration-sun {
@@ -503,22 +510,29 @@ ul {
     overflow: hidden;
 }
 
+.product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .battery-image {
     background: linear-gradient(135deg, #dff5e7, #b5e5c7);
 }
 
 .panel-image {
     background: linear-gradient(135deg, #dceef8, #b7dce9);
+    overflow: hidden;
+    width: 100%;
+    height: 210px;
 }
 
 .inverter-image {
     background: linear-gradient(135deg, #fff0cc, #f5dca0);
 }
 
-.product-emoji {
-    font-size: 95px;
-    filter: drop-shadow(0 10px 10px #00000015);
-}
+
 
 .product-badge {
     position: absolute;
@@ -607,13 +621,73 @@ ul {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    
 }
+.services-grid img {
+    width: 20vw;
+    background-image: url(Assets/images/solar_panel.jpeg);
+    background-repeat: no-repeat;
+    
+
+}
+
+   
 
 .service-card {
     padding: 27px 22px;
     border: 1px solid var(--border);
     border-radius: 12px;
     transition: 0.3s;
+    
+}
+#solar{
+    background-image: url(Assets/images/solar_panel.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 250px;
+    padding: 25px;
+    color: black;
+    border-radius: 12px;
+    background-size: cover;
+
+
+}
+
+#repair{
+    background-image: url(Assets/images/shop.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 250px;
+    padding: 25px;
+    color:black;
+    border-radius: 12px;
+    background-size: cover;
+
+}
+
+#service{
+    background-image: url(Assets/images/power.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 250px;
+    padding: 25px;
+    color:black;
+    border-radius: 12px;
+    background-size: cover;
+
+    
+
+}
+.install{
+    background-image: url(Assets/images/solarinstallation.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 250px;
+    padding: 25px;
+    color:black;
+    border-radius: 12px;
+    background-size: cover;
+
 }
 
 .service-card:hover {
