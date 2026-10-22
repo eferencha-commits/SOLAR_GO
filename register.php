@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once __DIR__ . "/database.php";
+//require_once __DIR__ . "/database.php";
 
 $errors = [];
 $success = "";
@@ -140,10 +140,17 @@ if ($role === "customer") {
     <link rel="stylesheet" href="../assets/css/style.css">
 
     <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #24352a;
+        }
         .register-section {
+            
             min-height: 85vh;
             padding: 60px 20px;
-            background: #f4faf5;
+            background: #0B2545;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -196,9 +203,16 @@ if ($role === "customer") {
         }
 
         .register-submit {
-            width: 100%;
+            width: 40%;
             cursor: pointer;
             font-size: 15px;
+            text-align: center;
+            margin-left: 30%;
+            padding: 10px;
+            background-color: #0B2545;
+            color: white;
+            border: none;
+            border-radius: 7px;
         }
 
         .form-message {
@@ -226,14 +240,14 @@ if ($role === "customer") {
         }
 
         .form-footer a {
-            color: #16834a;
+            color: #0B2545;
             font-weight: 700;
         }
 
         .back-home {
             display: inline-block;
             margin-bottom: 20px;
-            color: #16834a;
+            color: #0B2545;
             font-weight: 700;
         }
 

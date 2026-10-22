@@ -18,9 +18,8 @@
     <header class="header">
         <nav class="navbar container">
 
-            <a href="index.php" class="logo">
-                <span class="logo-icon">☀</span>
-                Solar<span>Go</span>
+            <a href="index.php" class="logo" aria-label="SolarGo home">
+                <img src="image/logo 1.jpeg" alt="SolarGo" class="logo-image">
             </a>
 
             <button class="menu-toggle"
@@ -40,7 +39,7 @@
 
             <div class="nav-buttons">
                 <a href="login.php" class="login-btn">Login</a>
-                <a href="register.php" class="btn btn-small">Get Started</a>
+                <a id="getStarted" href="register.php" class="btn btn-small">Get Started</a>
             </div>
 
         </nav>
@@ -441,7 +440,7 @@
                     </p>
                 </div>
 
-                <a href="auth/register.php" class="btn btn-light">
+                <a href="register.php" class="btn btn-light">
                     Create Your Account →
                 </a>
 
@@ -459,9 +458,8 @@
 
             <div class="footer-about">
 
-                <a href="index.php" class="logo footer-logo">
-                    <span class="logo-icon">☀</span>
-                    Solar<span>Go</span>
+                <a href="index.php" class="logo footer-logo" aria-label="SolarGo home">
+                    <img src="image/logo 1.jpeg" alt="SolarGo" class="logo-image">
                 </a>
 
                 <p>
@@ -490,8 +488,8 @@
             <div>
                 <h3>Account</h3>
                 <ul>
-                    <li><a href="auth/login.php">Login</a></li>
-                    <li><a href="auth/register.php">Register</a></li>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="register.php">Register</a></li>
                 </ul>
             </div>
 
