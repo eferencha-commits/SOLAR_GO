@@ -142,10 +142,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="../assets/css/style.css">
 
     <style>
+        body {
+            margin: 0;
+            background-color: #0B2545;
+        }
         .login-section {
             min-height: 85vh;
             padding: 60px 20px;
-            background: #f4faf5;
+            background: #0B2545;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -197,9 +201,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         .login-submit {
-            width: 100%;
+            width: 40%;
             cursor: pointer;
             font-size: 15px;
+            text-align: center;
+            margin-left: 30%;
+            padding: 10px;
+            background-color: #0B2545;
+            color: white;
+            border: none;
+            border-radius: 7px;
         }
 
         .form-message {
@@ -223,7 +234,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         .form-footer a,
         .back-home {
-            color: #16834a;
+            color: #0B2545;
             font-weight: 700;
         }
 

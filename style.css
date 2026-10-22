@@ -3,8 +3,8 @@
 ========================= */
 
 :root {
-    --green: #16834a;
-    --dark-green: #075c35;
+    --green: #0B2545;
+    --dark-green: #134074;
     --light-green: #eaf7ee;
     --yellow: #ffc928;
     --dark: #17251c;
@@ -79,6 +79,27 @@ ul {
     color: var(--dark);
 }
 
+.navbar .logo,
+.footer-logo {
+    position: relative;
+    display: block;
+    flex: 0 0 160px;
+    width: 160px;
+    height: 64px;
+    overflow: hidden;
+}
+
+.logo-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 200px;
+    max-width: none;
+    object-fit: contain;
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
 .logo > span:last-child {
     color: var(--green);
 }
@@ -111,6 +132,8 @@ ul {
     align-items: center;
     gap: 18px;
 }
+
+
 
 .login-btn {
     font-size: 14px;
@@ -818,7 +841,7 @@ ul {
 ========================= */
 
 .footer {
-    background: #10271b;
+    background: black;
     color: var(--white);
 }
 
@@ -1006,6 +1029,18 @@ ul {
 
     .logo {
         font-size: 23px;
+    }
+
+    .navbar .logo,
+    .footer-logo {
+        flex-basis: 130px;
+        width: 130px;
+        height: 52px;
+    }
+
+    .logo-image {
+        width: 65px;
+        height: 162px;
     }
 
     .nav-buttons {

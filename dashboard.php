@@ -4,7 +4,7 @@ session_start();
 
 // Ensure the user is logged in
 if (!isset($_SESSION["user_id"])) {
-    header("Location: ../auth/login.php");
+    header("Location: login.php");
     exit;
 }
 
@@ -143,7 +143,7 @@ $customer_name = $_SESSION["full_name"] ?? "Customer";
         <nav>
             <a href="../index.php">Home</a>
             &nbsp; | &nbsp;
-            <a href="../auth/logout.php">Logout</a>
+            <a href="logout.php">Logout</a>
         </nav>
         <ul class="nav-links" id="navLinks">
                 <li><a href="index.php" class="active">Home</a></li>
