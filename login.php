@@ -2,7 +2,7 @@
 
 session_start();
 
-//require_once __DIR__ . "/database.php";
+//require_once __DIR__ . "/auth/database.php";
 
 // Store errors and success messages
 $errors = [];
