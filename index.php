@@ -9,7 +9,7 @@
     <meta name="description"
           content="Discover solar products, installation services, maintenance, and flexible payment options with SolarGo.">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -39,8 +39,8 @@
             </ul>
 
             <div class="nav-buttons">
-                <a href="login.php" class="login-btn">Login</a>
-                <a href="register.php" class="btn btn-small">Get Started</a>
+                <a href="auth/login.php" class="login-btn">Login</a>
+                <a href="auth/register.php" class="btn btn-small">Get Started</a>
             </div>
 
         </nav>
@@ -516,7 +516,7 @@
     </footer>
 
 
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 </html>

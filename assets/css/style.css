@@ -1,0 +1,1109 @@
+/* =========================
+   GENERAL SETTINGS
+========================= */
+
+:root {
+    --green: #16834a;
+    --dark-green: #075c35;
+    --light-green: #eaf7ee;
+    --yellow: #ffc928;
+    --dark: #17251c;
+    --gray: #647067;
+    --white: #ffffff;
+    --light-bg: #f7faf7;
+    --border: #e3ebe4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: min(1150px, 90%);
+    margin: auto;
+}
+
+.section {
+    padding: 85px 0;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.logo > span:last-child {
+    color: var(--green);
+}
+
+.logo-icon {
+    color: var(--yellow);
+    font-size: 32px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #536057;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.login-btn {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 23px;
+    border: 2px solid var(--green);
+    border-radius: 7px;
+    background: var(--green);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--dark-green);
+    border-color: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.btn-small {
+    padding: 10px 16px;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--green);
+}
+
+.btn-outline:hover {
+    color: var(--white);
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    padding: 75px 0 85px;
+    background:
+        radial-gradient(circle at 85% 20%, #fff5cf 0, transparent 25%),
+        linear-gradient(120deg, #f4fbf5, #ffffff);
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.hero h1 {
+    max-width: 600px;
+    font-size: clamp(42px, 5vw, 65px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+    margin-bottom: 23px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--green);
+}
+
+.hero-text > p {
+    max-width: 530px;
+    color: var(--gray);
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 38px;
+    margin-top: 40px;
+}
+
+.hero-stats h3 {
+    color: var(--dark-green);
+    font-size: 17px;
+}
+
+.hero-stats p {
+    color: var(--gray);
+    font-size: 12px;
+}
+
+
+/* =========================
+   SOLAR ILLUSTRATION
+========================= */
+
+.hero-image {
+    position: relative;
+    min-height: 410px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.solar-illustration {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+    border-radius: 25px;
+    background: linear-gradient(#c6edda 0%, #e6f7eb 65%, #d0e9d4 65%);
+    overflow: hidden;
+}
+
+.illustration-sun {
+    position: absolute;
+    top: 35px;
+    right: 55px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: var(--yellow);
+    box-shadow: 0 0 45px #ffd85d;
+}
+
+.sun-decoration {
+    position: absolute;
+    top: -8px;
+    left: 5px;
+    color: var(--yellow);
+    font-size: 80px;
+}
+
+.house {
+    position: absolute;
+    width: 190px;
+    height: 165px;
+    left: 55px;
+    bottom: 48px;
+}
+
+.roof {
+    position: absolute;
+    width: 155px;
+    height: 155px;
+    top: 0;
+    left: 17px;
+    background: #a95d35;
+    transform: rotate(45deg);
+    border-radius: 9px;
+}
+
+.house-body {
+    position: absolute;
+    width: 190px;
+    height: 120px;
+    bottom: 0;
+    background: #fff9e8;
+    border: 4px solid #e7d5ad;
+}
+
+.window {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 48px;
+    height: 43px;
+    border: 5px solid #ffffff;
+    background: #8ed1e5;
+}
+
+.door {
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    width: 42px;
+    height: 75px;
+    background: #b8794e;
+    border: 4px solid #e7d5ad;
+}
+
+.solar-panel {
+    position: absolute;
+    right: 35px;
+    bottom: 48px;
+    width: 190px;
+    height: 105px;
+    background: #174d65;
+    border: 6px solid #d6e5e6;
+    transform: skewY(-12deg);
+    box-shadow: 0 12px 20px #264f3c33;
+}
+
+.panel-grid {
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(to right, transparent 31%, #91c6d5 32%, #91c6d5 34%, transparent 35%, transparent 65%, #91c6d5 66%, #91c6d5 68%, transparent 69%),
+        linear-gradient(to bottom, transparent 47%, #91c6d5 48%, #91c6d5 51%, transparent 52%);
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: #65a86e;
+}
+
+.floating-card {
+    position: absolute;
+    right: -5px;
+    bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 12px 35px #17251c15;
+}
+
+.floating-icon {
+    display: grid;
+    place-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background: #fff4c7;
+    font-size: 25px;
+}
+
+.floating-card strong {
+    font-size: 14px;
+}
+
+.floating-card p {
+    color: var(--gray);
+    font-size: 12px;
+}
+
+
+/* =========================
+   BENEFITS
+========================= */
+
+.benefits {
+    padding: 30px 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.benefit-item > span {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--light-green);
+    font-size: 24px;
+}
+
+.benefit-item h3 {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.benefit-item p {
+    color: var(--gray);
+    font-size: 12px;
+}
+
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    max-width: 600px;
+    color: var(--gray);
+}
+
+.section-heading.centered {
+    display: block;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 45px;
+}
+
+.section-heading.centered p {
+    margin: auto;
+}
+
+.text-link {
+    flex-shrink: 0;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products-section {
+    background: var(--light-bg);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px #17251c0d;
+}
+
+.product-image {
+    position: relative;
+    height: 210px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.battery-image {
+    background: linear-gradient(135deg, #dff5e7, #b5e5c7);
+}
+
+.panel-image {
+    background: linear-gradient(135deg, #dceef8, #b7dce9);
+}
+
+.inverter-image {
+    background: linear-gradient(135deg, #fff0cc, #f5dca0);
+}
+
+.product-emoji {
+    font-size: 95px;
+    filter: drop-shadow(0 10px 10px #00000015);
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--white);
+    color: var(--dark-green);
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.product-info {
+    padding: 23px;
+}
+
+.product-category {
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.product-info h3 {
+    margin: 8px 0;
+    font-size: 20px;
+}
+
+.product-info > p {
+    min-height: 48px;
+    color: var(--gray);
+    font-size: 13px;
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+.price {
+    color: var(--dark-green);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.product-btn {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: var(--light-green);
+    color: var(--green);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.product-btn:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+.demo-notice {
+    margin-top: 25px;
+    color: var(--gray);
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.services-section {
+    background: var(--white);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    padding: 27px 22px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    border-color: #a6d8b6;
+    transform: translateY(-4px);
+}
+
+.service-icon {
+    display: grid;
+    place-items: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 13px;
+    background: var(--light-green);
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    min-height: 95px;
+    color: var(--gray);
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.service-card a {
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how-section {
+    background: var(--light-bg);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.step {
+    padding: 20px 0;
+}
+
+.step-number {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.step h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.step p {
+    color: var(--gray);
+    font-size: 13px;
+}
+
+
+/* =========================
+   CALL TO ACTION
+========================= */
+
+.cta-section {
+    padding: 65px 0;
+    background: var(--dark-green);
+    color: var(--white);
+}
+
+.cta-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.cta-content .eyebrow {
+    color: var(--yellow);
+}
+
+.cta-content h2 {
+    max-width: 650px;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.2;
+    margin-bottom: 13px;
+}
+
+.cta-content p {
+    color: #d5e9dc;
+}
+
+.btn-light {
+    flex-shrink: 0;
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--dark);
+}
+
+.btn-light:hover {
+    background: #ffdc68;
+    border-color: #ffdc68;
+    color: var(--dark);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #10271b;
+    color: var(--white);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 35px;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+.footer-logo {
+    color: var(--white);
+}
+
+.footer-about > p {
+    max-width: 280px;
+    margin-top: 18px;
+    color: #b9cbbf;
+    font-size: 13px;
+}
+
+.footer-about .footer-slogan {
+    color: var(--yellow);
+    font-weight: 700;
+}
+
+.footer-grid h3 {
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+.footer-grid li {
+    margin-bottom: 12px;
+}
+
+.footer-grid li a,
+.footer-grid > div:last-child > p {
+    color: #b9cbbf;
+    font-size: 13px;
+}
+
+.footer-grid li a:hover {
+    color: var(--yellow);
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    border-top: 1px solid #ffffff20;
+}
+
+.footer-bottom p {
+    color: #b9cbbf;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero-content {
+        gap: 25px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .navbar {
+        position: relative;
+        min-height: 70px;
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 3;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        order: 4;
+        padding: 10px 0 20px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 12px 0;
+    }
+
+    .nav-buttons {
+        margin-left: auto;
+        gap: 12px;
+    }
+
+    .login-btn {
+        font-size: 13px;
+    }
+
+    .btn-small {
+        padding: 9px 12px;
+    }
+
+    .hero {
+        padding: 55px 0 65px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-image {
+        min-height: 370px;
+    }
+
+    .solar-illustration {
+        height: 330px;
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .nav-buttons {
+        gap: 8px;
+    }
+
+    .nav-buttons .btn-small {
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+        letter-spacing: -1px;
+    }
+
+    .hero-text > p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .hero-image {
+        min-height: 300px;
+    }
+
+    .solar-illustration {
+        height: 280px;
+    }
+
+    .house {
+        left: 15px;
+        transform: scale(0.8);
+        transform-origin: bottom left;
+    }
+
+    .solar-panel {
+        right: 12px;
+        width: 135px;
+        height: 80px;
+    }
+
+    .floating-card {
+        right: -5px;
+        bottom: 5px;
+        padding: 10px;
+    }
+
+    .floating-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    .products-grid,
+    .services-grid,
+    .steps-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 230px;
+    }
+
+    .service-card p {
+        min-height: auto;
+    }
+
+    .footer-grid {
+        gap: 30px;
+    }
+}
+.product-gallery {
+    min-width: 0;
+}
+
+.image-container {
+    width: 100%;
+    min-height: 350px;
+    max-height: 500px;
+    background: #edf2ee;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    padding: 15px;
+}
+
+.thumbnail-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.thumbnail-button {
+    width: 85px;
+    height: 85px;
+    padding: 3px;
+    border: 2px solid #dce5dc;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.thumbnail-button.active {
+    border-color: #16834a;
+}
+
+.thumbnail-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-button:focus-visible {
+    outline: 3px solid #16834a;
+    outline-offset: 3px;
+}
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.action-buttons form {
+    margin: 0;
+}
+
+.approve-btn,
+.reject-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+}
+
+.approve-btn {
+    background: #16a34a;
+}
+
+.approve-btn:hover {
+    background: #15803d;
+}
+
+.reject-btn {
+    background: #dc2626;
+}
+
+.reject-btn:hover {
+    background: #b91c1c;
+}

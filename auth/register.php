@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once __DIR__ . "/database.php";
+require_once __DIR__ . "/../config/database.php";
 
 $errors = [];
 $success = "";
@@ -44,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!in_array($role, $allowed_roles, true)) {
         $errors[] = "Please select a valid account type.";
     }
-    
 
     // Validate password
     if (strlen($password) < 8) {
@@ -79,14 +78,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
         // New accounts start as pending until reviewed
-       // Set account status according to the user's role
+// Set account status according to the user's role
 if ($role === "customer") {
     $account_status = "active";
 } else {
     $account_status = "pending";
-}
-
-        $insert_sql = "
+}        $insert_sql = "
             INSERT INTO users
             (full_name, email, phone, password_hash, role, account_status)
             VALUES (?, ?, ?, ?, ?, ?)
@@ -252,7 +249,7 @@ if ($role === "customer") {
 
         <div class="register-card">
 
-            <a href="index.php" class="back-home">
+            <a href="../index.php" class="back-home">
                 ← Back to SolarGo
             </a>
 
@@ -401,8 +398,8 @@ if ($role === "customer") {
 
                 </div>
 
-            
-                <button type="submit" class="btn register-submit" >
+
+                <button type="submit" class="btn register-submit">
                     Create Account
                 </button>
 

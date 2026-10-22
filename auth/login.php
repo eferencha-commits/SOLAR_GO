@@ -1,22 +1,23 @@
+
 <?php
 
 session_start();
 
 require_once __DIR__ . "/../config/database.php";
 
-// Store errors and success messages
+// Store errors and form values
 $errors = [];
 $email = "";
 
-// Create a CSRF token for form security
+// Create a CSRF token if one does not already exist
 if (empty($_SESSION["csrf_token"])) {
     $_SESSION["csrf_token"] = bin2hex(random_bytes(32));
 }
 
-// Process the form when submitted
+// Process login form
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // Validate the CSRF token
+    // Validate CSRF token
     $submitted_token = $_POST["csrf_token"] ?? "";
 
     if (
@@ -26,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors[] = "Invalid form submission. Please refresh the page.";
     }
 
-    // Get form inputs
+    // Collect submitted values
     $email = trim($_POST["email"] ?? "");
     $password = $_POST["password"] ?? "";
 
@@ -40,11 +41,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors[] = "Please enter your password.";
     }
 
-    // Find the user in the database
+    // Check user credentials
     if (empty($errors)) {
 
         $sql = "
-            SELECT user_id, full_name, email, password_hash, role, account_status
+            SELECT
+                user_id,
+                full_name,
+                email,
+                password_hash,
+                role,
+                account_status
             FROM users
             WHERE email = ?
             LIMIT 1
@@ -53,76 +60,101 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt = $conn->prepare($sql);
 
         if (!$stmt) {
-            error_log("SolarGo login query preparation failed.");
+
+            error_log("SolarGo login query preparation failed: " . $conn->error);
+
             $errors[] = "Something went wrong. Please try again.";
+
         } else {
 
             $stmt->bind_param("s", $email);
-            $stmt->execute();
 
-            $result = $stmt->get_result();
-            $user = $result->fetch_assoc();
+            if (!$stmt->execute()) {
 
-            $stmt->close();
+                error_log("SolarGo login query execution failed: " . $stmt->error);
 
-            // Verify the user's password
-            if (
-                !$user ||
-                !password_verify($password, $user["password_hash"])
-            ) {
-
-                $errors[] = "Incorrect email or password.";
-
-            } elseif ($user["account_status"] !== "active") {
-
-                if ($user["account_status"] === "pending") {
-                    $errors[] = "Your account is awaiting administrator approval.";
-                } else {
-                    $errors[] = "Your account is not active. Please contact the administrator.";
-                }
+                $errors[] = "Something went wrong. Please try again.";
 
             } else {
 
-                // Regenerate the session ID after login
-                session_regenerate_id(true);
+                $result = $stmt->get_result();
+                $user = $result->fetch_assoc();
 
-                // Store essential user information in the session
-                $_SESSION["user_id"] = (int) $user["user_id"];
-                $_SESSION["full_name"] = $user["full_name"];
-                $_SESSION["email"] = $user["email"];
-                $_SESSION["role"] = $user["role"];
+                // Verify password
+                if (
+                    !$user ||
+                    !password_verify($password, $user["password_hash"])
+                ) {
 
-                // Rotate the CSRF token
-                $_SESSION["csrf_token"] = bin2hex(random_bytes(32));
+                    $errors[] = "Incorrect email or password.";
 
-                // Redirect according to the user's role
-                switch ($user["role"]) {
+                } elseif ($user["account_status"] !== "active") {
 
-                    case "customer":
-                        header("Location: ../customer/dashboard.php");
-                        exit;
+                    if ($user["account_status"] === "pending") {
 
-                    case "seller":
-                        header("Location: ../seller/dashboard.php");
-                        exit;
+                        $errors[] = "Your account is awaiting administrator approval.";
 
-                    case "technician":
-                        header("Location: ../technician/dashboard.php");
-                        exit;
+                    } elseif ($user["account_status"] === "suspended") {
 
-                    case "admin":
-                        header("Location: ../admin/dashboard.php");
-                        exit;
+                        $errors[] = "Your account has been suspended. Please contact the administrator.";
 
-                    default:
-                        // Reject unexpected roles
-                        $_SESSION = [];
-                        session_destroy();
+                    } else {
 
-                        header("Location: login.php");
-                        exit;
+                        $errors[] = "Your account is not active. Please contact the administrator.";
+                    }
+
+                } else {
+
+                    // Ensure the user's role is recognized
+                    $allowed_roles = [
+                        "customer",
+                        "seller",
+                        "technician",
+                        "admin"
+                    ];
+
+                    if (!in_array($user["role"], $allowed_roles, true)) {
+
+                        $errors[] = "Your account has an invalid role. Please contact the administrator.";
+
+                    } else {
+
+                        // Regenerate session ID after successful login
+                        session_regenerate_id(true);
+
+                        // Store essential user information
+                        $_SESSION["user_id"] = (int) $user["user_id"];
+                        $_SESSION["full_name"] = $user["full_name"];
+                        $_SESSION["email"] = $user["email"];
+                        $_SESSION["role"] = $user["role"];
+
+                        // Generate a new CSRF token
+                        $_SESSION["csrf_token"] = bin2hex(random_bytes(32));
+
+                        // Redirect according to role
+                        switch ($user["role"]) {
+
+                            case "customer":
+                                header("Location: ../customer/dashboard.php");
+                                exit;
+
+                            case "seller":
+                                header("Location: ../seller/dashboard.php");
+                                exit;
+
+                            case "technician":
+                                header("Location: ../technician/dashboard.php");
+                                exit;
+
+                            case "admin":
+                                header("Location: ../admin/dashboard.php");
+                                exit;
+                        }
+                    }
                 }
             }
+
+            $stmt->close();
         }
     }
 }
@@ -134,7 +166,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Login | SolarGo</title>
@@ -189,6 +220,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             border-radius: 7px;
             font-size: 15px;
             background: #ffffff;
+            box-sizing: border-box;
         }
 
         .form-group input:focus {
@@ -259,7 +291,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <?php if (!empty($errors)): ?>
 
-                <div class="form-message error-message">
+                <div class="form-message error-message" role="alert">
 
                     <?php foreach ($errors as $error): ?>
 
